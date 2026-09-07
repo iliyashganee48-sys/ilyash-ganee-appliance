@@ -1,1 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Ilyash Ganee | AC, Fridge & Washing Machine</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#17243a;
+    padding-bottom:70px;
+}
+
+header{
+    height:62px;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 15px;
+    position:sticky;
+    top:0;
+    z-index:10;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+}
+
+header button{
+    border:0;
+    background:none;
+    font-size:22px;
+}
+
+.logo{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.hero{
+    background:linear-gradient(135deg,#0866d6,#063d86);
+    color:white;
+    padding:30px 18px;
+    border-radius:0 0 25px 25px;
+}
+
+.hero small{
+    background:white;
+    color:#0866d6;
+    padding:7px 10px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+.hero h1{
+    font-size:30px;
+    margin:18px 0 10px;
+}
+
+.hero p{
+    line-height:1.6;
+    color:#dceaff;
+}
+
+.buttons{
+    margin-top:20px;
+}
+
+.btn{
+    padding:12px 17px;
+    border-radius:10px;
+    border:0;
+    font-weight:bold;
+    margin-right:6px;
+}
+
+.shop-btn{
+    background:white;
+    color:#0866d6;
+}
+
+.academy-btn{
+    background:#ffffff22;
+    color:white;
+    border:1px solid #ffffff55;
+}
+
+.search{
+    display:flex;
+    margin:-18px 15px 20px;
+    position:relative;
+}
+
+.search input{
+    flex:1;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:13px 0 0 13px;
+    font-size:14px;
+}
+
+.search button{
+    width:55px;
+    border:0;
+    background:white;
+    border-radius:0 13px 13px 0;
+    font-size:18px;
+}
+
+.container{
+    padding:10px 15px;
+}
+
+h2{
+    font-size:20px;
+    margin:22px 0 13px;
+}
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+}
+
+.category{
+    background:white;
+    border:1px solid #e4e9f1;
+    border-radius:15px;
+    padding:14px 5px;
+    text-align:center;
+}
+
+.category .icon{
+    font-size:27px;
+}
+
+.category b{
+    display:block;
+    font-size:12px;
+    margin-top:7px;
+}
+
+.category span{
+    font-size:10px;
+    color:#777;
+}
+
+.banner{
+    margin:22px 0;
+    padding:20px;
+    border-radius:18px;
+    background:#0965d3;
+    color:white;
+}
+
+.banner h2{
+    margin:0 0 7px;
+}
+
+.banner p{
+    color:#dceaff;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.product{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    border:1px solid #e5eaf2;
+}
+
+.product-img{
+    height:130px;
+    background:#edf4ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:48px;
+}
+
+.product-body{
+    padding:12px;
+}
+
+.product-body small{
+    color:#777;
+}
+
+.product-body h3{
+    font-size:13px;
+    margin:7px 0;
+}
+
+.price{
+    font-weight:bold;
+    font-size:16px;
+}
+
+.add{
+    width:100%;
+    margin-top:10px;
+    padding:9px;
+    background:#0866d6;
+    color:white;
+    border:0;
+    border-radius:9px;
+    font-weight:bold;
+}
+
+.academy{
+    background:white;
+    padding:18px;
+    border-radius:18px;
+    margin-top:20px;
+}
+
+.lesson{
+    padding:14px;
+    border:1px solid #e2e7ef;
+    border-radius:12px;
+    margin-top:10px;
+}
+
+.lesson b{
+    color:#0866d6;
+}
+
+.note{
+    background:#fff8df;
+    padding:12px;
+    border-radius:10px;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.whatsapp{
+    position:fixed;
+    right:15px;
+    bottom:82px;
+    background:#18a957;
+    color:white;
+    padding:13px 17px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    z-index:20;
+}
+
+.bottom{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:65px;
+    background:white;
+    border-top:1px solid #ddd;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    z-index:15;
+}
+
+.bottom div{
+    text-align:center;
+    font-size:11px;
+}
+
+.bottom span{
+    display:block;
+    font-size:20px;
+    margin-bottom:3px;
+}
+
+@media(max-width:600px){
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<button>☰</button>
+
+<div class="logo">
+🔧 Ilyash Ganee
+</div>
+
+<button>🛒</button>
+
+</header>
+
+
+<section class="hero">
+
+<small>REPAIR • SPARES • LEARNING</small>
+
+<h1>
+Appliance Repair Ka Smart Solution
+</h1>
+
+<p>
+AC • Refrigerator • Washing Machine
+<br>
+Spare Parts, PCB Repair aur Technician Learning ek jagah.
+</p>
+
+<div class="buttons">
+
+<button class="btn shop-btn"
+onclick="document.getElementById('shop').scrollIntoView()">
+Shop Now
+</button>
+
+<button class="btn academy-btn"
+onclick="document.getElementById('academy').scrollIntoView()">
+Repair Academy
+</button>
+
+</div>
+
+</section>
+
+
+<div class="search">
+
+<input
+type="text"
+placeholder="Search PCB, part, model, error code..."
+>
+
+<button>🔎</button>
+
+</div>
+
+
+<div class="container">
+
+<section id="shop">
+
+<h2>Shop by Category</h2>
+
+<div class="categories">
+
+<div class="category">
+<div class="icon">❄️</div>
+<b>AC</b>
+<span>PCB & Parts</span>
+</div>
+
+<div class="category">
+<div class="icon">🧊</div>
+<b>Refrigerator</b>
+<span>Spare Parts</span>
+</div>
+
+<div class="category">
+<div class="icon">🫧</div>
+<b>Washing Machine</b>
+<span>PCB & Parts</span>
+</div>
+
+<div class="category">
+<div class="icon">🛠️</div>
+<b>Tools</b>
+<span>Testing Tools</span>
+</div>
+
+</div>
+
+
+<div class="banner">
+
+<h2>Model-First Repair Knowledge</h2>
+
+<p>
+Error code aur PCB information ko exact brand,
+model/series aur service documentation ke saath verify
+karke publish kiya jayega.
+</p>
+
+</div>
+
+
+<h2>Featured Products</h2>
+
+<div class="products">
+
+<div class="product">
+
+<div class="product-img">
+❄️
+</div>
+
+<div class="product-body">
+
+<small>AC</small>
+
+<h3>
+AC PCB Diagnostic Guide
+</h3>
+
+<div class="price">
+₹499
+</div>
+
+<button class="add">
+Add to Basket
+</button>
+
+</div>
+
+</div>
+
+
+<div class="product">
+
+<div class="product-img">
+⚡
+</div>
+
+<div class="product-body">
+
+<small>AC</small>
+
+<h3>
+AC PCB Component Kit
+</h3>
+
+<div class="price">
+₹899
+</div>
+
+<button class="add">
+Add to Basket
+</button>
+
+</div>
+
+</div>
+
+
+<div class="product">
+
+<div class="product-img">
+🧊
+</div>
+
+<div class="product-body">
+
+<small>Refrigerator</small>
+
+<h3>
+Refrigerator PCB Guide
+</h3>
+
+<div class="price">
+₹399
+</div>
+
+<button class="add">
+Add to Basket
+</button>
+
+</div>
+
+</div>
+
+
+<div class="product">
+
+<div class="product-img">
+🫧
+</div>
+
+<div class="product-body">
+
+<small>Washing Machine</small>
+
+<h3>
+Washing Machine PCB Guide
+</h3>
+
+<div class="price">
+₹399
+</div>
+
+<button class="add">
+Add to Basket
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="academy" class="academy">
+
+<h2>🔧 Repair Academy</h2>
+
+<div class="note">
+
+⚠️ Important:
+AC, Refrigerator aur Washing Machine ke error codes
+model/series ke hisaab se change ho sakte hain.
+Isliye bina verification ke koi reading ya error code
+publish nahi kiya jayega.
+
+</div>
+
+
+<div class="lesson">
+
+<b>AC PCB Repair</b>
+
+<p>
+PCB dead, fan problem, compressor problem,
+sensor fault, communication fault aur inverter PCB.
+</p>
+
+</div>
+
+
+<div class="lesson">
+
+<b>Refrigerator PCB Repair</b>
+
+<p>
+PCB testing, sensors, fan, compressor,
+inverter section aur error diagnosis.
+</p>
+
+</div>
+
+
+<div class="lesson">
+
+<b>Washing Machine PCB Repair</b>
+
+<p>
+PCB, motor, drain, water supply, sensors
+aur model-specific error diagnosis.
+</p>
+
+</div>
+
+
+<div class="lesson">
+
+<b>🔒 IPM Advanced Lesson</b>
+
+<p>
+Advanced inverter PCB/IPM learning.
+</p>
+
+<strong>₹500</strong>
+
+</div>
+
+</section>
+
+</div>
+
+
+<a class="whatsapp"
+href="https://wa.me/9192635730738"
+target="_blank">
+
+💬 WhatsApp
+
+</a>
+
+
+<div class="bottom">
+
+<div>
+<span>🏠</span>
+Shop
+</div>
+
+<div>
+<span>♡</span>
+Wishlist
+</div>
+
+<div>
+<span>🛒</span>
+Cart
+</div>
+
+<div>
+<span>👤</span>
+Account
+</div>
+
+</div>
+
+</body>
+  </html>
